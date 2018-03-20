@@ -118,5 +118,7 @@ fabric.properties
 # Sonarlint plugin
 .idea/sonarlint
 
+# RubyMine
+.idea
 
 # End of https://www.gitignore.io/api/ruby,rubymine
