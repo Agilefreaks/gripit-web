@@ -1,25 +1,47 @@
 # frozen_string_literal: true
 
-ruby '2.5.0'
+ruby "2.5.0"
 
-source 'https://rubygems.org'
+source "https://rubygems.org"
 
-gem 'json'
-gem 'jsonapi-rb'
-gem 'rack_csrf'
-gem 'sinatra'
+gem "rake"
 
-# When developing an app locally you can use SQLite which is a relational
-# database stored in a file. It's easy to set up and just fine for most
-# development situations.
-group :development do
-  gem 'pry'
-  gem 'sinatra-reloader'
-  # Enforce standard code formatting
-  gem 'rubocop', require: false
+# Web framework
+gem "dry-system", "~> 0.9"
+gem "dry-web", "~> 0.7"
+gem "dry-web-roda", "~> 0.11"
+gem "jsonapi-rb"
+gem "puma"
+gem "rack_csrf"
+
+gem "rack", ">= 2.0"
+gem "rerun"
+
+# Database persistence
+gem "pg"
+gem "rom", "~> 4.0"
+gem "rom-sql", "~> 2.1"
+
+# Application dependencies
+gem "dry-matcher", "~> 0.6.0"
+gem "dry-monads", "~> 0.3"
+gem "dry-struct", "~> 0.3"
+gem "dry-transaction", "~> 0.10"
+gem "dry-types", "~> 0.12"
+gem "dry-validation", "~> 0.11"
+gem "dry-view", "~> 0.4"
+gem "memoizable"
+
+group :development, :test do
+  gem "pry-byebug", platform: :mri
+  gem "rubocop"
 end
 
-# Heroku uses Postgres however, so we tell the Gemfile to use Postgres
-# in production instead of SQLite.
-group :production do
+group :test do
+  gem "capybara"
+  gem "capybara-screenshot"
+  gem "database_cleaner"
+  gem "poltergeist"
+  gem "rom-factory", "~> 0.5"
+  gem "rspec"
 end

@@ -121,4 +121,6 @@ fabric.properties
 # RubyMine
 .idea
 
+.ruby-version
+
 # End of https://www.gitignore.io/api/ruby,rubymine
